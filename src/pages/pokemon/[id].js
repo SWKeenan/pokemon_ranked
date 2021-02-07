@@ -131,7 +131,20 @@ const Pokemon = ({ pokemon, otherPokemon, pokeflavour, evolution }) => {
  
 export default Pokemon;
 
-export const getServerSideProps = async ({params}) =>{
+export const getStaticPaths = async () =>{
+    const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=898');
+    const pokemon = await res.json();
+
+    const paths = pokemon.results.map(poke => ({
+        params: {id: poke.url.replace("https://pokeapi.co/api/v2/pokemon/", "").slice(0, -1)}
+    }));
+    return {
+        paths,
+        fallback: false,
+    }
+}
+
+export const getStaticProps = async ({params}) =>{
 
     const pokemon = await getPokemon(params.id);
     const evolution = await getEvolution(params.id);
