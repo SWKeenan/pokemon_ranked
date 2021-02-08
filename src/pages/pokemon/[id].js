@@ -70,8 +70,8 @@ const Pokemon = ({ pokemon, otherPokemon, pokeflavour, evolution }) => {
                                 <div className={styles.overview_label}>legendary</div>
                         </div>
                         <div className={styles.overview_stats}>
-                                <div className={styles.overview_value}>{pokeflavour.is_mytical ? 'Yes' : 'No'}</div>
-                                <div className={styles.overview_label}>mytical</div>
+                                <div className={styles.overview_value}>{pokeflavour.is_mythical ? 'Yes' : 'No'}</div>
+                                <div className={styles.overview_label}>mythical</div>
                         </div>
                     </div>
                 </div> 
