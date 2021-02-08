@@ -65,13 +65,13 @@ const Pokemon = ({ pokemon, otherPokemon, pokeflavour, evolution }) => {
                                 <div className={styles.overview_label}>{stat.stat.name}</div>
                             </div>
                         )})}
-                        <div className={styles.overview_stats}>
+                        <div className={styles.overview_stats} title="Legendary are rare Pokemon that CAN be caught in-game.">
                                 <div className={styles.overview_value}>{pokeflavour.is_legendary ? 'Yes' : 'No'}</div>
-                                <div className={styles.overview_label} title="Legendary are rare Pokemon that CAN be caught in-game.">legendary</div>
+                                <div className={styles.overview_label}>legendary</div>
                         </div>
-                        <div className={styles.overview_stats}>
+                        <div className={styles.overview_stats} title="Mythical are rare Pokemon that CAN'T be caught in-game.">
                                 <div className={styles.overview_value}>{pokeflavour.is_mythical ? 'Yes' : 'No'}</div>
-                                <div className={styles.overview_label} title="Mythical are rare Pokemon that CAN'T be caught in-game.">mythical</div>
+                                <div className={styles.overview_label}>mythical</div>
                         </div>
                     </div>
                 </div> 
