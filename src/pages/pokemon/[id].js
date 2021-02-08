@@ -52,7 +52,7 @@ const Pokemon = ({ pokemon, otherPokemon, pokeflavour, evolution }) => {
                     <h1 className={styles.overview_name}>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
                     {pokemon.types.map(type=>{
                     return(
-                        <div className={styles.overview_types}>
+                        <div className={styles.overview_types} key={type.type.name}>
                             <div className={styles.overview_value}>{type.type.name}</div>
                         </div>
                         )})}
@@ -60,11 +60,19 @@ const Pokemon = ({ pokemon, otherPokemon, pokeflavour, evolution }) => {
                     <div className={styles.overview_overviewstats}>
                         {pokemon.stats.map(stat=>{
                         return(
-                            <div className={styles.overview_stats}>
+                            <div className={styles.overview_stats} key={stat.stat.name}>
                                 <div className={styles.overview_value}>{stat.base_stat}</div>
                                 <div className={styles.overview_label}>{stat.stat.name}</div>
                             </div>
                         )})}
+                        <div className={styles.overview_stats}>
+                                <div className={styles.overview_value}>{pokeflavour.is_legendary ? 'Yes' : 'No'}</div>
+                                <div className={styles.overview_label}>legendary</div>
+                        </div>
+                        <div className={styles.overview_stats}>
+                                <div className={styles.overview_value}>{pokeflavour.is_mytical ? 'Yes' : 'No'}</div>
+                                <div className={styles.overview_label}>mytical</div>
+                        </div>
                     </div>
                 </div> 
             </div>
@@ -92,7 +100,7 @@ const Pokemon = ({ pokemon, otherPokemon, pokeflavour, evolution }) => {
                         <div className={styles.details_panel_row_evolve}>
                             {evolution.length > 1 ?
                                 (evolution.map((evolve, index)=>
-                                    <Link href={`/pokemon/${evolve.species_id}/`}>
+                                    <Link href={`/pokemon/${evolve.species_id}/`} key={index}>
                                             <a><div className={styles.details_panel_value}><div className={styles.details_panel_value}>
                                                 {evolve.species_name.charAt(0).toUpperCase() + evolve.species_name.slice(1)}
                                             </div>
@@ -114,7 +122,7 @@ const Pokemon = ({ pokemon, otherPokemon, pokeflavour, evolution }) => {
 
                     <div className={styles.details_panel_otherPokemon_container}>
                         {otherPokemon.map((pokemon)=>
-                        <Link href={`/pokemon/${pokemon.id}/`}>
+                        <Link href={`/pokemon/${pokemon.id}/`} key={pokemon.id}>
                             <div className={styles.details_panel_otherPokemon_image}>
                                 <img src={pokemon.bigImage} alt={pokemon.name}></img> 
                                 <div className={styles.details_panel_otherPokemon_name}>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</div>

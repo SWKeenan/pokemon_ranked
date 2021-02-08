@@ -33,6 +33,7 @@
 
 .overview_label {
   font-size: 14px;
+  text-transform: capitalize;
   color: var(--text-color-secondary);
 }
 
