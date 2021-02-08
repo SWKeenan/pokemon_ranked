@@ -24,6 +24,12 @@
   margin-bottom: 24px;
 }
 
+.overview_overviewstats_total {
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
 .overview_overviewstats {
   display: grid;
   grid-template-columns: 1fr 1fr;

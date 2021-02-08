@@ -43,6 +43,10 @@ const Pokemon = ({ pokemon, otherPokemon, pokeflavour, evolution }) => {
     let flavouredText = pokeflavour.['flavor_text_entries'].filter( 
         eachObj => eachObj.language.name === 'en');
 
+    let totalStats = pokemon.stats.reduce(function(tot, arr) { 
+        return tot + arr.base_stat;            
+      },0);
+
     return  (
     <Layout title={pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}>
         <div className={styles.container}>
@@ -56,8 +60,12 @@ const Pokemon = ({ pokemon, otherPokemon, pokeflavour, evolution }) => {
                             <div className={styles.overview_value}>{type.type.name}</div>
                         </div>
                         )})}
-                
+                    <div className={styles.overview_overviewstats_total}>
+                        <div className={styles.overview_value}>{totalStats}</div>
+                        <div className={styles.overview_label}>total</div>
+                    </div>
                     <div className={styles.overview_overviewstats}>
+                    
                         {pokemon.stats.map(stat=>{
                         return(
                             <div className={styles.overview_stats} key={stat.stat.name}>
