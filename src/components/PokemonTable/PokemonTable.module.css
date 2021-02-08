@@ -10,7 +10,7 @@
   cursor: pointer;
 }
 
-.heading_flag {
+.heading_image {
   flex: 2;
   margin-right: 16px;
 }
@@ -18,7 +18,7 @@
 .heading_name,
 .heading_type,
 .heading_id,
-.heading_height {
+.heading_points {
   flex: 4;
   color: var(--text-color-secondary);
   font-weight: 500;
@@ -71,16 +71,16 @@
   flex: 4;
 }
 
-.height {
+.points {
   flex: 4;
 }
 
-.flag {
+.image {
   flex: 2;
   margin-right: 16px;
 }
 
-.flag img {
+.image img {
   border-radius: 2px;
   width: 100%;
 }
@@ -91,13 +91,13 @@
     display: none;
   }
 
-  .height,
-  .heading_height {
+  .type,
+  .heading_type {
     display: none;
   }
 
-  .flag,
-  .heading_flag {
+  .image,
+  .heading_image {
     display: none;
   }
 }

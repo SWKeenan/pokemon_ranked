@@ -51,12 +51,12 @@ const PokemonTable = ({pokemon}) => {
         switchDirection();
         setValue(value);
     }
-
+console.log(pokemon);
     return ( 
         <div>
             <div className={styles.heading}>
 
-                <div className={styles.heading_flag}></div>
+                <div className={styles.heading_image}></div>
                 <button className={styles.heading_name} onClick={() => setValueAndDirection('name')}>
                     <div>Name</div>
                     
@@ -69,29 +69,31 @@ const PokemonTable = ({pokemon}) => {
                     {value==='id' && <SortArrow direction={direction} /> }
                 </button>
 
-                <button className={styles.heading_height} onClick={() => setValueAndDirection('height')}>
-                    <div>Height (ft)</div>
-                    
-                    {value==='height' && <SortArrow direction={direction} /> }
-                </button>
-
                 <button className={styles.heading_type} onClick={() => setValueAndDirection('type')}>
                     <div>Type</div>
                     
                     {value==='type' && <SortArrow direction={direction} /> }
+                </button>
+
+                <button className={styles.heading_points} onClick={() => setValueAndDirection('points')}>
+                    <div>Total Stats</div>
+                    
+                    {value==='points' && <SortArrow direction={direction} /> }
                 </button>
             </div>
 
             {orderedPokemon.map((pokeman) => (
             <Link href={`/pokemon/${pokeman.id}`} key={pokeman.name}><a>
             <div className={styles.row}>
-                <div className={styles.flag}>
+                <div className={styles.image}>
                     <img src={pokeman.smallImage} alt={pokeman.name} />
                 </div>
                 <div className={styles.name}>{pokeman.name.charAt(0).toUpperCase() + pokeman.name.slice(1)}</div>
                 <div className={styles.id}>{pokeman.id}</div>
-                <div className={styles.height}>{(pokeman.height / 3.048).toFixed(2)}</div>
-                <div className={styles.type}>{pokeman.type}</div>
+                <div className={styles.type}>
+                <div>{pokeman.type}</div>
+                </div>
+                <div className={styles.points}>{pokeman.points}</div>
             </div>
             </a></Link>))}
         </div>

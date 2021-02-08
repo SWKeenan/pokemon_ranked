@@ -37,7 +37,7 @@ export default function Home({pokemon}) {
 export const getStaticProps = async () =>{
   const promises = []
   const pokemon = []
-  for(let i =1; i < 899; i++){
+  for(let i =1; i < 898; i++){
     const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
     promises.push(fetch(url).then((res) => res.json()));
   }
@@ -45,6 +45,10 @@ export const getStaticProps = async () =>{
     const poke = results.map( (data) => ({
             name: data.name,
             id: data.id,
+            points: data.stats.reduce(function(tot, arr) { 
+              return tot + arr.base_stat;            
+            },0),
+            hp: data.stats.map(stat => (stat.stat.name==='hp') ? stat.base_stat : '').join(''),
             height: data.height,
             smallImage: data.sprites['front_default'],
             type: data.types.map(type => type.type.name).join(', ')
