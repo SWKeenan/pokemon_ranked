@@ -37,7 +37,7 @@ export default function Home({pokemon}) {
 export const getStaticProps = async () =>{
   const promises = []
   const pokemon = []
-  for(let i =1; i < 898; i++){
+  for(let i =1; i < 899; i++){
     const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
     promises.push(fetch(url).then((res) => res.json()));
   }
