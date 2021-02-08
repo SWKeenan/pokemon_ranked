@@ -51,7 +51,7 @@ const PokemonTable = ({pokemon}) => {
         switchDirection();
         setValue(value);
     }
-console.log(pokemon);
+    
     return ( 
         <div>
             <div className={styles.heading}>
