@@ -48,7 +48,12 @@ export const getStaticProps = async () =>{
             points: data.stats.reduce(function(tot, arr) { 
               return tot + arr.base_stat;            
             },0),
-            hp: data.stats.map(stat => (stat.stat.name==='hp') ? stat.base_stat : '').join(''),
+            hp: parseInt(data.stats.map(stat => (stat.stat.name==='hp') ? stat.base_stat : '').join('')),
+            attack: parseInt(data.stats.map(stat => (stat.stat.name==='attack') ? stat.base_stat : '').join('')),
+            defense: parseInt(data.stats.map(stat => (stat.stat.name==='defense') ? stat.base_stat : '').join('')),
+            ['special-attack']: parseInt(data.stats.map(stat => (stat.stat.name==='special-attack') ? stat.base_stat : '').join('')),
+            ['special-defense']: parseInt(data.stats.map(stat => (stat.stat.name==='special-defense') ? stat.base_stat : '').join('')),
+            speed: parseInt(data.stats.map(stat => (stat.stat.name==='speed') ? stat.base_stat : '').join('')),
             height: data.height,
             smallImage: data.sprites['front_default'],
             type: data.types.map(type => type.type.name).join(', ')

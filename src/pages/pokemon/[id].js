@@ -57,7 +57,26 @@ const Pokemon = ({ pokemon, otherPokemon, pokeflavour, evolution }) => {
                     {pokemon.types.map(type=>{
                     return(
                         <div className={styles.overview_types} key={type.type.name}>
-                            <div className={styles.overview_value}>{type.type.name}</div>
+                            <div className={styles.overview_value}>
+                                {type.type.name==='normal' ? <div className={styles.normal}>{type.type.name}</div> : ''}
+                                {type.type.name==='fire' ? <div className={styles.fire}>{type.type.name}</div> : ''}
+                                {type.type.name==='water' ? <div className={styles.water}>{type.type.name}</div> : ''}
+                                {type.type.name==='electric' ? <div className={styles.electric}>{type.type.name}</div> : ''}
+                                {type.type.name==='grass' ? <div className={styles.grass}>{type.type.name}</div> : ''}
+                                {type.type.name==='ice' ? <div className={styles.ice}>{type.type.name}</div> : ''}
+                                {type.type.name==='fighting' ? <div className={styles.fighting}>{type.type.name}</div> : ''}
+                                {type.type.name==='poison' ? <div className={styles.poison}>{type.type.name}</div> : ''}
+                                {type.type.name==='ground' ? <div className={styles.ground}>{type.type.name}</div> : ''}
+                                {type.type.name==='flying' ? <div className={styles.flying}>{type.type.name}</div> : ''}
+                                {type.type.name==='psychic' ? <div className={styles.psychic}>{type.type.name}</div> : ''}
+                                {type.type.name==='bug' ? <div className={styles.bug}>{type.type.name}</div> : ''}
+                                {type.type.name==='rock' ? <div className={styles.rock}>{type.type.name}</div> : ''}
+                                {type.type.name==='ghost' ? <div className={styles.ghost}>{type.type.name}</div> : ''}
+                                {type.type.name==='dragon' ? <div className={styles.dragon}>{type.type.name}</div> : ''}
+                                {type.type.name==='dark' ? <div className={styles.dark}>{type.type.name}</div> : ''}
+                                {type.type.name==='steel' ? <div className={styles.steel}>{type.type.name}</div> : ''}
+                                {type.type.name==='fairy' ? <div className={styles.fairy}>{type.type.name}</div> : ''}
+                            </div>
                         </div>
                         )})}
                     <div className={styles.overview_overviewstats_total}>
