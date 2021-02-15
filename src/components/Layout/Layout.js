@@ -52,7 +52,7 @@ const Layout = ({children, title="Pokemon Ranked"}) =>{
             </main>
 
             <footer className={styles.footer}>
-                Shane Keenan @ <a href="https://shanekeenan.netlify.app/" target="_blank">shanekeenan.netlify.app</a>
+                Shane Keenan @ <a href="https://shanekeenan.vercel.app/" target="_blank">https://shanekeenan.vercel.app</a>
             </footer>
         </div>
     )   
